@@ -5,17 +5,15 @@ package org.mybatis.generator;
  */
 public interface Config {
 
-    public static final String baseController="com.ffzx.core.controller.BaseController";
+    String baseController = "com.ffzx.core.controller.BaseController";
 
-    public static final String baseService="com.ffzx.core.service.impl.BaseServiceImpl";
+    String baseService = "com.ffzx.core.service.impl.BaseServiceImpl";
 
-    public static final String controllerPackage="com.ffzx.kart.controller";
+    String controllerPackage = "com.ffzx.kart.controller";
 
-    public static final String servicePackage="com.ffzx.kart.service";
+    String servicePackage = "com.ffzx.kart.service";
 
-    public static final String rootServiceInterface="com.ffzx.core.service.BaseService";
-
-
+    String rootServiceInterface = "com.ffzx.core.service.BaseService";
 
 
 }
