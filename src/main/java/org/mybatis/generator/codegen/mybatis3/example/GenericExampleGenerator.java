@@ -13,7 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package org.mybatis.generator.codegen.mybatis3.model;
+package org.mybatis.generator.codegen.mybatis3.example;
 
 import static org.mybatis.generator.internal.util.JavaBeansUtil.getGetterMethodName;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;

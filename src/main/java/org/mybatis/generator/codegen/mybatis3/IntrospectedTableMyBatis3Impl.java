@@ -33,8 +33,8 @@ import org.mybatis.generator.codegen.mybatis3.javamapper.AnnotatedClientGenerato
 import org.mybatis.generator.codegen.mybatis3.javamapper.JavaMapperGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.MixedClientGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.BaseRecordGenerator;
-import org.mybatis.generator.codegen.mybatis3.model.ExampleGenerator;
-import org.mybatis.generator.codegen.mybatis3.model.GenericExampleGenerator;
+import org.mybatis.generator.codegen.mybatis3.example.ExampleGenerator;
+import org.mybatis.generator.codegen.mybatis3.example.GenericExampleGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.PrimaryKeyGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.RecordWithBLOBsGenerator;
 import org.mybatis.generator.codegen.mybatis3.service.ServiceGenerator;
