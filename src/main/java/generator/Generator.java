@@ -14,7 +14,7 @@ public class Generator {
 	public static void main(String[] args) throws Exception {
 		  List<String> warnings = new ArrayList<String>();
 		   boolean overwrite = true;
-		   File configFile = new File("G:\\kart\\stms-model\\generatorConfig.xml");
+		   File configFile = new File("G:\\generator\\generator\\generatorConfig.xml");
 		   ConfigurationParser cp = new ConfigurationParser(warnings);
 		   Configuration config = cp.parseConfiguration(configFile);
 		   DefaultShellCallback callback = new DefaultShellCallback(overwrite);

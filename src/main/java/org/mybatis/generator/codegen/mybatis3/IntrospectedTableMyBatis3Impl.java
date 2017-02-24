@@ -28,6 +28,7 @@ import org.mybatis.generator.codegen.AbstractGenerator;
 import org.mybatis.generator.codegen.AbstractJavaClientGenerator;
 import org.mybatis.generator.codegen.AbstractJavaGenerator;
 import org.mybatis.generator.codegen.AbstractXmlGenerator;
+import org.mybatis.generator.codegen.mybatis3.controller.ControllerGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.AnnotatedClientGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.JavaMapperGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.MixedClientGenerator;
@@ -36,6 +37,8 @@ import org.mybatis.generator.codegen.mybatis3.model.ExampleGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.GenericExampleGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.PrimaryKeyGenerator;
 import org.mybatis.generator.codegen.mybatis3.model.RecordWithBLOBsGenerator;
+import org.mybatis.generator.codegen.mybatis3.service.ServiceGenerator;
+import org.mybatis.generator.codegen.mybatis3.service.ServiceInterfaceGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
 import org.mybatis.generator.config.PropertyRegistry;
 import org.mybatis.generator.internal.ObjectFactory;
@@ -197,10 +200,26 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
                     progressCallback);
             javaModelGenerators.add(javaGenerator);
         }
-        AbstractJavaGenerator ExampleCommonGenerator=new GenericExampleGenerator();
-        initializeAbstractGenerator(ExampleCommonGenerator, warnings,
+        AbstractJavaGenerator exampleCommonGenerator=new GenericExampleGenerator();
+        initializeAbstractGenerator(exampleCommonGenerator, warnings,
                 progressCallback);
-        javaModelGenerators.add(ExampleCommonGenerator);
+        javaModelGenerators.add(exampleCommonGenerator);
+
+        AbstractJavaGenerator serviceInterfaceGenerator=new ServiceInterfaceGenerator();
+        initializeAbstractGenerator(serviceInterfaceGenerator, warnings,
+                progressCallback);
+        javaModelGenerators.add(serviceInterfaceGenerator);
+
+
+        AbstractJavaGenerator serviceGenerator=new ServiceGenerator();
+        initializeAbstractGenerator(serviceGenerator, warnings,
+                progressCallback);
+        javaModelGenerators.add(serviceGenerator);
+
+        AbstractJavaGenerator controllerGenerator=new ControllerGenerator();
+        initializeAbstractGenerator(controllerGenerator, warnings,
+                progressCallback);
+        javaModelGenerators.add(controllerGenerator);
     }
 
     /**
