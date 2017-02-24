@@ -1,5 +1,6 @@
 package org.mybatis.generator.codegen.mybatis3.controller;
 
+import org.mybatis.generator.Config;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.FullyQualifiedTable;
 import org.mybatis.generator.api.dom.java.*;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class ControllerGenerator extends AbstractJavaGenerator {
     public List<CompilationUnit> getCompilationUnits() {
-        String basePackage="com.ffzx.kart.controller";
+        String basePackage= Config.controllerPackage;
 
         CommentGenerator commentGenerator = context.getCommentGenerator();
         FullyQualifiedTable table = this.introspectedTable.getFullyQualifiedTable();
@@ -24,7 +25,7 @@ public class ControllerGenerator extends AbstractJavaGenerator {
         topLevelClass.setVisibility(JavaVisibility.PUBLIC);
         commentGenerator.addJavaFileComment(topLevelClass);
 
-        String superController = "com.ffzx.core.controller.BaseController";
+        String superController = Config.baseController;
         FullyQualifiedJavaType baseController = new FullyQualifiedJavaType(
                 superController);
         FullyQualifiedJavaType entityType= new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
@@ -36,7 +37,7 @@ public class ControllerGenerator extends AbstractJavaGenerator {
         topLevelClass.setSuperClass(baseController);
 
 
-        FullyQualifiedJavaType service= new FullyQualifiedJavaType("com.ffzx.kart.service."+table.getDomainObjectName()+"Service");
+        FullyQualifiedJavaType service= new FullyQualifiedJavaType(Config.servicePackage+"."+table.getDomainObjectName()+"Service");
         Field field=new Field();
         field.setVisibility(JavaVisibility.PRIVATE);
         field.setType(service);

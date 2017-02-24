@@ -1,5 +1,6 @@
 package org.mybatis.generator.codegen.mybatis3.service;
 
+import org.mybatis.generator.Config;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.FullyQualifiedTable;
 import org.mybatis.generator.api.dom.java.*;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class ServiceGenerator extends AbstractJavaGenerator {
     public List<CompilationUnit> getCompilationUnits() {
-        String basePackage="com.ffzx.kart.service.impl";
+        String basePackage= Config.servicePackage+".impl";
 
         CommentGenerator commentGenerator = context.getCommentGenerator();
         FullyQualifiedTable table = this.introspectedTable.getFullyQualifiedTable();
@@ -26,7 +27,7 @@ public class ServiceGenerator extends AbstractJavaGenerator {
         topLevelClass.setVisibility(JavaVisibility.PUBLIC);
         commentGenerator.addJavaFileComment(topLevelClass);
 
-        String superService = "com.ffzx.core.service.impl.BaseServiceImpl";
+        String superService = Config.baseService;
         FullyQualifiedJavaType baseService = new FullyQualifiedJavaType(
                 superService);
         FullyQualifiedJavaType entityType= new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
@@ -34,7 +35,7 @@ public class ServiceGenerator extends AbstractJavaGenerator {
         FullyQualifiedJavaType keyType= new FullyQualifiedJavaType("String");
         baseService.addTypeArgument(keyType);
         topLevelClass.setSuperClass(baseService);
-        FullyQualifiedJavaType superInface= new FullyQualifiedJavaType("com.ffzx.kart.service."+table.getDomainObjectName()+"Service");
+        FullyQualifiedJavaType superInface= new FullyQualifiedJavaType(Config.servicePackage+"."+table.getDomainObjectName()+"Service");
         topLevelClass.addSuperInterface(superInface);
 
 

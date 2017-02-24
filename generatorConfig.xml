@@ -28,15 +28,15 @@
                         password="ffzx2016">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.ffzx.kart.model" targetProject="G:\kart\stms-model\src\main\java">
+        <javaModelGenerator targetPackage="com.ffzx.kart.model" targetProject="G:\generator\generator\src\main\java">
             <property name="trimStrings" value="true" />
             <property name="rootClass" value="com.ffzx.orm.common.BaseEntity" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.ffzx.kart.mapper"  targetProject="G:\kart\stms-model\src\main\java"/>
+        <sqlMapGenerator targetPackage="com.ffzx.kart.mapper"  targetProject="G:\generator\generator\src\main\java"/>
 
 		<!-- ANNOTATEDMAPPER XMLMAPPER MIXEDMAPPER: -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ffzx.kart.mapper"  targetProject="G:\kart\stms-model\src\main\java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ffzx.kart.mapper"  targetProject="G:\generator\generator\src\main\java"/>
 
         <table tableName="%">
            <!--  <generatedKey column="id" sqlStatement="Mysql"/> -->

@@ -1,5 +1,6 @@
 package org.mybatis.generator.codegen.mybatis3.service;
 
+import org.mybatis.generator.Config;
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.FullyQualifiedTable;
 import org.mybatis.generator.api.dom.java.CompilationUnit;
@@ -18,7 +19,7 @@ import java.util.List;
 public class ServiceInterfaceGenerator extends AbstractJavaGenerator {
 
     public List<CompilationUnit> getCompilationUnits() {
-        String basePackage="com.ffzx.kart.service";
+        String basePackage= Config.servicePackage;
 
         CommentGenerator commentGenerator = context.getCommentGenerator();
         FullyQualifiedTable table = this.introspectedTable.getFullyQualifiedTable();
@@ -27,7 +28,7 @@ public class ServiceInterfaceGenerator extends AbstractJavaGenerator {
         Interface interfaze = new Interface(type);
         interfaze.setVisibility(JavaVisibility.PUBLIC);
         commentGenerator.addJavaFileComment(interfaze);
-        String rootInterface = "com.ffzx.core.service.BaseService";
+        String rootInterface = Config.rootServiceInterface;
         FullyQualifiedJavaType baseService = new FullyQualifiedJavaType(
                 rootInterface);
         FullyQualifiedJavaType entityType= new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
