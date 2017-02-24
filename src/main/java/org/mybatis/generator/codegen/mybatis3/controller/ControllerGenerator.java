@@ -53,6 +53,7 @@ public class ControllerGenerator extends AbstractJavaGenerator {
 
         topLevelClass.addImportedType("javax.annotation.Resource");
         topLevelClass.addImportedType("org.springframework.stereotype.Controller");
+        topLevelClass.addImportedType("org.springframework.web.bind.annotation.RequestMapping");
         topLevelClass.addImportedType(service);
         topLevelClass.addImportedType(entityType);
         topLevelClass.addImportedType(exampleType);
@@ -60,6 +61,7 @@ public class ControllerGenerator extends AbstractJavaGenerator {
 
         //topLevelClass.addImportedType(baseService);
         topLevelClass.addAnnotation("@Controller");
+        topLevelClass.addAnnotation("@RequestMapping(\"/"+table.getDomainObjectName()+"\")");
 
         List<CompilationUnit> answer = new ArrayList<CompilationUnit>();
         answer.add(topLevelClass);
